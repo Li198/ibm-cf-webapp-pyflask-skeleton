@@ -3,3 +3,5 @@ flask_sslify
 flask_bootstrap
 werkzeug
 pyjwt
+cloudant
+gunicorn

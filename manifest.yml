@@ -1,5 +1,7 @@
----
 applications:
- - name: GetStartedPython
-   random-route: true
-   memory: 128M
+ - path: .
+   name: vnderlev-my-app
+   random-route: false
+   memory: 1G
+   disk_quota: 1G
+   instances: 1
