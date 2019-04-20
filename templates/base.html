@@ -1,0 +1,76 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        PyFlask Skeleton WebApp
+    {% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <div class="header-bar">
+        <div class="header-bar__home">
+            <div class="header-bar__home__button">
+                <strong>PyFlask Skeleton WebApp</strong>
+            </div>
+            <div class="header-bar__new">
+                <a href="https://github.com/vnderlev" class="new-analysis Button secondary">vnderlev @ github</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<html>
+    <head>
+        <!-- style resources -->
+        <link href="{{ url_for('static', filename='css/main_ibm.css') }}" rel="stylesheet"></link>
+        <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet"></link>
+        <link href="{{ url_for('static', filename='images/WatsonLogo.png') }}" rel="icon" type="image/png"></link>
+        <!-- scripts -->
+        <script src="{{ url_for('static', filename='js/antixss.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://d3js.org/d3.v4.js"></script>
+    </head>
+
+    <body class="sandboxtwo">
+        <div class="container">
+
+            <!-- purple top block -->
+            <div class="article-input">
+
+                <br>
+                <br>
+
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-info" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <!-- app content block -->
+                {% block app_content %}
+
+                {% endblock %}
+            </div>
+
+            <!-- white bottom block -->
+            <div class="wii-info tab">
+                <div class="wii-info__tiles">
+                    <h3>
+                        vnderlev.
+                    </h3>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
+
+{% endblock %}
